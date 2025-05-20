@@ -11,9 +11,11 @@ function getLength(numbers) {
  * @returns {number} the sum of the numbers
  */
 function getSum(numbers) {
-  return numbers.reduce((acc, curr) => {
-    return acc + curr;
-  }, 0);
+  let num = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    num += numbers[i];
+  }
+  return num;
 }
 
 /**
@@ -21,9 +23,7 @@ function getSum(numbers) {
  * @returns {number} the mean of the numbers
  */
 function getMean(numbers) {
-  return numbers.reduce((acc, curr) => {
-    return acc + curr;
-  }, 0) / numbers.length;
+  return getSum(numbers) / getLength(numbers);
 }
 
 /**
@@ -31,7 +31,11 @@ function getMean(numbers) {
  * @returns {number} the smallest of the numbers
  */
 function getMin(numbers) {
-  return Math.min(...numbers);
+  let num = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] < num) num = numbers[i];
+  }
+  return num;
 }
 
 /**
@@ -39,7 +43,11 @@ function getMin(numbers) {
  * @returns {number} the largest of the numbers
  */
 function getMax(numbers) {
-  return Math.max(...numbers);
+  let num = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] > num) num = numbers[i];
+  }
+  return num;
 }
 
 /**
@@ -47,7 +55,7 @@ function getMax(numbers) {
  * @returns {number} the range of the numbers (max - min)
  */
 function getRange(numbers) {
-  return Math.max(...numbers) - Math.min(...numbers);
+  return getMax(numbers) - getMin(numbers);
 }
 
 /**
@@ -55,7 +63,11 @@ function getRange(numbers) {
  * @returns {number[]} the even numbers in the array
  */
 function getEvens(numbers) {
-  return numbers.filter(num => num % 2 === 0)
+  let outputArray = [];
+  for (let i = 0; i < numbers.length; i++) {
+    if (Math.abs(numbers[i]) % 2 === 0) outputArray.push(numbers[i]);
+  }
+  return outputArray;
 }
 
 /**
@@ -63,7 +75,11 @@ function getEvens(numbers) {
  * @returns {number[]} the odd numbers in the array
  */
 function getOdds(numbers) {
-  return numbers.filter(num => Math.abs(num) % 2 === 1)
+  let outputArray = [];
+  for (let i = 0; i < numbers.length; i++) {
+    if (Math.abs(numbers[i]) % 2 === 1) outputArray.push(numbers[i]);
+  }
+  return outputArray;
 }
 
 // === READ BUT DO NOT EDIT THE CODE BELOW ===
