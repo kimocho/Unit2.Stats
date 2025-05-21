@@ -31,7 +31,7 @@ function getMean(numbers) {
  * @returns {number} the smallest of the numbers
  */
 function getMin(numbers) {
-  let num = 0;
+  let num = numbers[0];
   for (let i = 0; i < numbers.length; i++) {
     if (numbers[i] < num) num = numbers[i];
   }
@@ -43,7 +43,7 @@ function getMin(numbers) {
  * @returns {number} the largest of the numbers
  */
 function getMax(numbers) {
-  let num = 0;
+  let num = numbers[0];
   for (let i = 0; i < numbers.length; i++) {
     if (numbers[i] > num) num = numbers[i];
   }
